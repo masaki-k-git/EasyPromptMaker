@@ -1,1 +1,180 @@
+:root {
+  --bg: #f5f5f5;
+  --panel: #ffffff;
+  --border: #d9d9d9;
+  --text: #222222;
+  --subtext: #555555;
+  --accent: #222222;
+  --button-hover: #444444;
+  --success: #0a7a33;
+  --shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  --radius: 12px;
+}
 
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans",
+    "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.container {
+  width: min(1100px, calc(100% - 32px));
+  margin: 32px auto 48px;
+}
+
+.app-header {
+  margin-bottom: 24px;
+}
+
+.app-header h1 {
+  margin: 0 0 8px;
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+.app-description {
+  margin: 0;
+  color: var(--subtext);
+  font-size: 0.98rem;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+}
+
+.panel h2 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 1.2rem;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group:last-child {
+  margin-bottom: 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font: inherit;
+  color: var(--text);
+  background: #fff;
+  resize: vertical;
+  min-height: 96px;
+}
+
+textarea:focus {
+  outline: 2px solid #999;
+  outline-offset: 1px;
+}
+
+.preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.preview-header h2 {
+  margin: 0;
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+button:hover {
+  background: var(--button-hover);
+}
+
+.preview-box {
+  margin: 0;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fafafa;
+  min-height: 420px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono",
+    monospace;
+  font-size: 0.94rem;
+  line-height: 1.7;
+}
+
+.copy-status {
+  margin: 10px 0 0;
+  min-height: 1.5em;
+  color: var(--success);
+  font-size: 0.92rem;
+}
+
+@media (max-width: 860px) {
+  .main-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .preview-box {
+    min-height: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: min(100% - 20px, 1100px);
+    margin-top: 20px;
+    margin-bottom: 28px;
+  }
+
+  .panel {
+    padding: 16px;
+  }
+
+  .app-header h1 {
+    font-size: 1.7rem;
+  }
+
+  button {
+    width: auto;
+    white-space: nowrap;
+  }
+}
