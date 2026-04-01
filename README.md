@@ -1,0 +1,2 @@
+# EasyPromptMaker
+AI初心者向けのプロンプト生成を支援するWebアプリ。入力ガイド付きでMarkdown形式のプロンプトを簡単生成
