@@ -11,7 +11,7 @@
     <header class="app-header">
       <h1>EasyPromptMaker</h1>
       <p class="app-description">
-        AI初心者向けの、Markdown形式プロンプト作成支援アプリです。AIに質問しても、うまく答えが返ってこない。それは質問があいまいだからかもしれません。このツールでは、空欄を埋めるだけで、AIが理解しやすい質問文を作ることができます。作成した文章をコピーして、そのままAIへの質問欄に貼り付けて使いましょう！
+        AIに質問しても丁度いい答えが返ってこない。それはAIが理解しにくい質問だからかも。このツールは空欄を埋めるだけで、AIが理解しやすい質問文を作ることができます。作成した文章をAIのチャット欄にコピペして使いましょう！
       </p>
     </header>
 
@@ -23,7 +23,7 @@
           <label>対象者
             <span class="hint">
               誰に向けた内容かを書く（経験・立場まで具体化）<br>
-              例：AI初心者の新社会人 / 店舗スタッフ<br>
+              例：AI初心者の新社会人 / ベテランの店舗スタッフ<br>
               NG：一般向け / 誰でも
             </span>
           </label>
@@ -34,7 +34,7 @@
           <label>達成したい目標
             <span class="hint">
               最終的にどうなってほしいかを行動で書く<br>
-              例：理解する / 判断できる / 作れるようになる
+              例：理解を深める / 自分で判断できる / すばやく作れるようになる
             </span>
           </label>
           <textarea id="goal" rows="4" placeholder="業務にAIを活用する際の注意点の理解を促す"></textarea>
@@ -44,7 +44,7 @@
           <label>現状や既にやった事
             <span class="hint">
               スタート地点や前提を書く<br>
-              例：入門書を読んだ / 未経験 / 研修のみ
+              例：入門書を読んだ / 未経験 / 練習したけどなかなか上手くいかない
             </span>
           </label>
           <textarea id="currentStatus" rows="4" placeholder="簡単なAI入門書を与えた"></textarea>
@@ -54,7 +54,7 @@
           <label>制約や問題点
             <span class="hint">
               制約や困っていることを書く<br>
-              例：専門家がいない / 時間がない / 予算が少ない
+              例：専門家がいない / 時間がない / 苦手意識が強い
             </span>
           </label>
           <textarea id="constraints" rows="4" placeholder="社内にAIに詳しい担当者がいないので手探り状態"></textarea>
@@ -67,7 +67,7 @@
               例：ガイドライン / スライド / 台本（A4,4ページなど）
             </span>
           </label>
-          <textarea id="output" rows="6" placeholder="業務で生成AIを活用する際のガイドライン作成&#10;A4,縦,モノクロ,4ページ,墨ベタ禁止,表紙不要"></textarea>
+          <textarea id="output" rows="6" placeholder="業務で生成AIを活用する際のガイドライン作成"></textarea>
         </div>
       </section>
 
