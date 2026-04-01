@@ -12,7 +12,6 @@
       <h1>EasyPromptMaker</h1>
       <p class="app-description">
         AI初心者向けの、Markdown形式プロンプト作成支援アプリです。
-        入力欄を埋めるだけで、構造化されたプロンプトをすぐに生成できます。
       </p>
     </header>
 
@@ -21,40 +20,68 @@
         <h2>入力フォーム</h2>
 
         <div class="form-group">
-          <label for="target">対象者</label>
-          <textarea id="target" rows="4">AI初心者の新社会人</textarea>
+          <label>対象者
+            <span class="hint">
+              誰に向けた内容かを書く（経験・立場まで具体化）<br>
+              例：AI初心者の新社会人 / 店舗スタッフ<br>
+              NG：一般向け / 誰でも
+            </span>
+          </label>
+          <textarea id="target" rows="4" placeholder="AI初心者の新社会人"></textarea>
         </div>
 
         <div class="form-group">
-          <label for="goal">達成したい目標</label>
-          <textarea id="goal" rows="4">業務にAIを活用する際の注意点の理解を促す</textarea>
+          <label>達成したい目標
+            <span class="hint">
+              最終的にどうなってほしいかを行動で書く<br>
+              例：理解する / 判断できる / 作れるようになる
+            </span>
+          </label>
+          <textarea id="goal" rows="4" placeholder="業務にAIを活用する際の注意点の理解を促す"></textarea>
         </div>
 
         <div class="form-group">
-          <label for="currentStatus">現状や既にやった事</label>
-          <textarea id="currentStatus" rows="4">簡単なAI入門書を与えた</textarea>
+          <label>現状や既にやった事
+            <span class="hint">
+              スタート地点や前提を書く<br>
+              例：入門書を読んだ / 未経験 / 研修のみ
+            </span>
+          </label>
+          <textarea id="currentStatus" rows="4" placeholder="簡単なAI入門書を与えた"></textarea>
         </div>
 
         <div class="form-group">
-          <label for="constraints">制約や問題点</label>
-          <textarea id="constraints" rows="4">社内にAIに詳しい担当者がいないので手探り状態</textarea>
+          <label>制約や問題点
+            <span class="hint">
+              制約や困っていることを書く<br>
+              例：専門家がいない / 時間がない / 予算が少ない
+            </span>
+          </label>
+          <textarea id="constraints" rows="4" placeholder="社内にAIに詳しい担当者がいないので手探り状態"></textarea>
         </div>
 
         <div class="form-group">
-          <label for="output">出力</label>
-          <textarea id="output" rows="6">業務で生成AIを活用する際のガイドライン作成
-A4,縦,モノクロ,4ページ,墨ベタ禁止,表紙不要</textarea>
+          <label>出力
+            <span class="hint">
+              何を作るか＋形式まで指定する<br>
+              例：ガイドライン / スライド / 台本（A4,4ページなど）
+            </span>
+          </label>
+          <textarea id="output" rows="6" placeholder="業務で生成AIを活用する際のガイドライン作成&#10;A4,縦,モノクロ,4ページ,墨ベタ禁止,表紙不要"></textarea>
         </div>
       </section>
 
       <section class="panel preview-panel">
         <div class="preview-header">
           <h2>Markdownプレビュー</h2>
-          <button id="copyButton" type="button">コピー</button>
+          <div class="button-group">
+            <button id="resetButton">リセット</button>
+            <button id="copyButton">コピー</button>
+          </div>
         </div>
 
         <pre id="preview" class="preview-box"></pre>
-        <p id="copyStatus" class="copy-status" aria-live="polite"></p>
+        <p id="copyStatus" class="copy-status"></p>
       </section>
     </main>
   </div>
