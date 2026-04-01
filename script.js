@@ -6,50 +6,52 @@ const elements = {
   output: document.getElementById("output"),
   preview: document.getElementById("preview"),
   copyButton: document.getElementById("copyButton"),
+  resetButton: document.getElementById("resetButton"),
   copyStatus: document.getElementById("copyStatus"),
 };
 
-function generateMarkdown() {
-  const target = elements.target.value.trim();
-  const goal = elements.goal.value.trim();
-  const currentStatus = elements.currentStatus.value.trim();
-  const constraints = elements.constraints.value.trim();
-  const output = elements.output.value.trim();
+function getValue(el) {
+  return el.value.trim() || el.placeholder;
+}
 
+function generateMarkdown() {
   return `##対象者
-${target}
+${getValue(elements.target)}
 
 ##達成したい目標
-${goal}
+${getValue(elements.goal)}
 
 ##現状や既にやった事
-${currentStatus}
+${getValue(elements.currentStatus)}
 
 ##制約や問題点
-${constraints}
+${getValue(elements.constraints)}
 
 ##出力
-${output}`;
+${getValue(elements.output)}`;
 }
 
 function updatePreview() {
   elements.preview.textContent = generateMarkdown();
 }
 
-async function copyMarkdown() {
-  const markdown = generateMarkdown();
-
-  try {
-    await navigator.clipboard.writeText(markdown);
-    elements.copyStatus.textContent = "コピーしました";
-    window.setTimeout(() => {
-      elements.copyStatus.textContent = "";
-    }, 2000);
-  } catch (error) {
-    elements.copyStatus.textContent = "コピーに失敗しました";
-    console.error("Clipboard copy failed:", error);
-  }
+function copyMarkdown() {
+  navigator.clipboard.writeText(generateMarkdown());
+  elements.copyStatus.textContent = "コピーしました";
+  setTimeout(() => (elements.copyStatus.textContent = ""), 2000);
 }
+
+function resetForm() {
+  Object.values(elements).forEach((el) => {
+    if (el.tagName === "TEXTAREA") el.value = "";
+  });
+  updatePreview();
+  elements.copyStatus.textContent = "リセットしました";
+  setTimeout(() => (elements.copyStatus.textContent = ""), 2000);
+}
+
+elements.copyButton.addEventListener("click", copyMarkdown);
+elements.resetButton.addEventListener("click", resetForm);
 
 [
   elements.target,
@@ -57,10 +59,6 @@ async function copyMarkdown() {
   elements.currentStatus,
   elements.constraints,
   elements.output,
-].forEach((textarea) => {
-  textarea.addEventListener("input", updatePreview);
-});
-
-elements.copyButton.addEventListener("click", copyMarkdown);
+].forEach((el) => el.addEventListener("input", updatePreview));
 
 updatePreview();
