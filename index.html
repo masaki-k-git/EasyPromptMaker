@@ -1,1 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EasyPromptMaker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="app-header">
+      <h1>EasyPromptMaker</h1>
+      <p class="app-description">
+        AI初心者向けの、Markdown形式プロンプト作成支援アプリです。
+        入力欄を埋めるだけで、構造化されたプロンプトをすぐに生成できます。
+      </p>
+    </header>
 
+    <main class="main-grid">
+      <section class="panel form-panel">
+        <h2>入力フォーム</h2>
+
+        <div class="form-group">
+          <label for="target">対象者</label>
+          <textarea id="target" rows="4">AI初心者の新社会人</textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="goal">達成したい目標</label>
+          <textarea id="goal" rows="4">業務にAIを活用する際の注意点の理解を促す</textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="currentStatus">現状や既にやった事</label>
+          <textarea id="currentStatus" rows="4">簡単なAI入門書を与えた</textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="constraints">制約や問題点</label>
+          <textarea id="constraints" rows="4">社内にAIに詳しい担当者がいないので手探り状態</textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="output">出力</label>
+          <textarea id="output" rows="6">業務で生成AIを活用する際のガイドライン作成
+A4,縦,モノクロ,4ページ,墨ベタ禁止,表紙不要</textarea>
+        </div>
+      </section>
+
+      <section class="panel preview-panel">
+        <div class="preview-header">
+          <h2>Markdownプレビュー</h2>
+          <button id="copyButton" type="button">コピー</button>
+        </div>
+
+        <pre id="preview" class="preview-box"></pre>
+        <p id="copyStatus" class="copy-status" aria-live="polite"></p>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
